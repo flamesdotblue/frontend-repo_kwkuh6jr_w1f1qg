@@ -1,5 +1,4 @@
 import React from 'react';
-import Spline from '@splinetool/react-spline';
 import { motion } from 'framer-motion';
 
 const container = {
@@ -18,12 +17,16 @@ const fadeUp = {
 export default function Hero() {
   return (
     <section className="relative min-h-[90vh] w-full overflow-hidden bg-neutral-950 text-white">
+      {/* Background cover image */}
       <div className="absolute inset-0">
-        <Spline
-          scene="https://prod.spline.design/Z9BMpz-LA54Dlbrj/scene.splinecode"
-          style={{ width: '100%', height: '100%' }}
+        <img
+          src="https://cdn.dribbble.com/userupload/16537236/file/original-3c9baf8044faac370974ead6e9a41217.jpg?resize=1504x1003&vertical=center"
+          alt="Blue to purple diagonal textured gradient"
+          className="h-full w-full object-cover"
         />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-neutral-950/60 via-neutral-950/30 to-neutral-950" />
+        {/* Soft gradient overlays to enhance readability without blocking interactions */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-neutral-950/60 via-neutral-950/20 to-neutral-950" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-indigo-500/30 via-fuchsia-500/10 to-transparent mix-blend-soft-light" />
       </div>
 
       <motion.div
@@ -32,10 +35,16 @@ export default function Hero() {
         animate="show"
         className="relative mx-auto flex max-w-7xl flex-col items-center px-6 pt-28 text-center sm:pt-36"
       >
-        <motion.span variants={fadeUp} className="mb-4 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-white/80 backdrop-blur-sm">
+        <motion.span
+          variants={fadeUp}
+          className="mb-4 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-white/80 backdrop-blur-sm"
+        >
           New • AI-powered analytics
         </motion.span>
-        <motion.h1 variants={fadeUp} className="text-balance font-extrabold tracking-tight text-white [text-wrap:balance] text-4xl sm:text-5xl md:text-6xl">
+        <motion.h1
+          variants={fadeUp}
+          className="text-balance font-extrabold tracking-tight text-white [text-wrap:balance] text-4xl sm:text-5xl md:text-6xl"
+        >
           Transform Your Data into Action
         </motion.h1>
         <motion.p variants={fadeUp} className="mt-4 max-w-2xl text-pretty text-base text-white/80 sm:text-lg">
