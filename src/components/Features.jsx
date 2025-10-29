@@ -1,5 +1,6 @@
 import React from 'react';
 import { Rocket, LineChart, Layout, Plug } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const features = [
   {
@@ -24,6 +25,16 @@ const features = [
   },
 ];
 
+const container = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
+};
+
+const card = {
+  hidden: { opacity: 0, y: 16 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
 export default function Features() {
   return (
     <section className="relative w-full bg-neutral-950 py-20 text-white">
@@ -35,10 +46,18 @@ export default function Features() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
+        >
           {features.map(({ title, desc, Icon }) => (
-            <div
+            <motion.div
               key={title}
+              variants={card}
+              whileHover={{ y: -6, scale: 1.02 }}
               className="group rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-transparent p-6 transition hover:border-white/20"
             >
               <div className="mb-4 inline-flex rounded-xl bg-white/10 p-3 text-white">
@@ -46,9 +65,9 @@ export default function Features() {
               </div>
               <h3 className="text-lg font-semibold">{title}</h3>
               <p className="mt-2 text-sm text-white/70">{desc}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

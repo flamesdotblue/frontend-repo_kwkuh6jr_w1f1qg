@@ -1,16 +1,35 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 export default function FinalSection() {
   return (
     <section className="w-full bg-neutral-950 text-white">
       <div className="mx-auto max-w-7xl px-6 py-20 text-center">
-        <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
+        <motion.h2
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl font-extrabold tracking-tight sm:text-5xl"
+        >
           Ready to unlock the power of your data?
-        </h2>
-        <p className="mx-auto mt-3 max-w-2xl text-white/70">
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mx-auto mt-3 max-w-2xl text-white/70"
+        >
           Book a free demo, or log in to explore the dashboard now.
-        </p>
-        <div className="mt-8 flex items-center justify-center gap-3">
+        </motion.p>
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-8 flex items-center justify-center gap-3"
+        >
           <a
             href="#get-started"
             className="rounded-lg bg-white px-6 py-3 text-sm font-semibold text-neutral-900 shadow-lg shadow-white/10 transition hover:opacity-90"
@@ -23,7 +42,7 @@ export default function FinalSection() {
           >
             Login
           </a>
-        </div>
+        </motion.div>
       </div>
 
       <footer className="border-t border-white/10">
