@@ -7,7 +7,7 @@ import FinalSection from './components/FinalSection';
 
 function App() {
   return (
-    <div className="min-h-screen bg-neutral-950 font-[Inter] text-white">
+    <div className="min-h-screen bg-neutral-950 text-white">
       <Header />
       <main>
         <section id="home">
